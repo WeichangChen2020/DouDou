@@ -49,36 +49,39 @@ Page(Object.assign({}, Zan.Field, Zan.Tab, Zan.TopTips, {
   },
   // 获取手机号码
   getUserTel(e) {
-    var rd3_session = wx.getStorageSync('pingshifen_3rd_session')
-    var obj = this
-    wx.request({
-      url: getUserTelUrl,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': 'PHPSESSID=' + wx.getStorageSync('pingshifen_PHPSESSID')
-      },
-      data: {
-        rd3_session: rd3_session,
-        encryptedData: e.detail.encryptedData,
-        iv: e.detail.iv,
-      },
-
-      success: function (res) {
-        //检验服务端用户是否过期
-        console.log(res)
-        if (res.data.success == true) {
-          obj.setData({
-            tel: res.data.data.data.purePhoneNumber
-          })
-          console.log(res.data.data)
-        } else {
-          wx.showToast({
-            title: res.data.message + '请重新进入小程序',
-            icon:'none',
-          })
-        }
-      },
+    this.setData({
+      tel: e.detail.value
     })
+    // var rd3_session = wx.getStorageSync('pingshifen_3rd_session')
+    // var obj = this
+    // wx.request({
+    //   url: getUserTelUrl,
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded',
+    //     'Cookie': 'PHPSESSID=' + wx.getStorageSync('pingshifen_PHPSESSID')
+    //   },
+    //   data: {
+    //     rd3_session: rd3_session,
+    //     encryptedData: e.detail.encryptedData,
+    //     iv: e.detail.iv,
+    //   },
+
+    //   success: function (res) {
+    //     //检验服务端用户是否过期
+    //     console.log(res)
+    //     if (res.data.success == true) {
+    //       obj.setData({
+    //         tel: res.data.data.data.purePhoneNumber
+    //       })
+    //       console.log(res.data.data)
+    //     } else {
+    //       wx.showToast({
+    //         title: res.data.message + '请重新进入小程序',
+    //         icon:'none',
+    //       })
+    //     }
+    //   },
+    // })
   },
   getUserSchool() {
     wx.navigateTo({
@@ -109,6 +112,13 @@ Page(Object.assign({}, Zan.Field, Zan.Tab, Zan.TopTips, {
     if (!this.data.tel) {
       this.showZanTopTips('手机号不能为空');
       return
+    } else {
+      let myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+      let tel = this.data.tel;
+      if (!myreg.test(tel)) {
+        this.showZanTopTips('请输入正确的手机号');
+        return false;
+      }
     }
     if (!this.data.school) {
       this.showZanTopTips('学校不能为空');
