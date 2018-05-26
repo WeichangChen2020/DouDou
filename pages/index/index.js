@@ -154,7 +154,7 @@ Page({
             })
           } else {
             wx.showToast({
-              title: '请先完成信息绑定',
+              title: '请在 "我的->我的信息"完成信息绑定信息绑定',
               icon: 'none'
             })
           }
@@ -271,7 +271,7 @@ Page({
   check_register() {
     let user_type = wx.getStorageSync('pingshifen_user_type')
     if (!user_type || user_type == 0) {
-      wx.showToast({ title: '请先完成信息绑定', icon: 'none' })
+      wx.showToast({ title: '请在 "我的->我的信息"完成信息绑定信息绑定', icon: 'none' })
       return false
     }
   },
