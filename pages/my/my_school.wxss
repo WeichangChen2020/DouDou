@@ -35,3 +35,8 @@
 .searchbar-result:before{
     display: none;
 }
+
+.show_all{
+  text-align: center;
+  font-size: 30rpx;
+}
