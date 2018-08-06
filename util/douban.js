@@ -1,6 +1,6 @@
 // const API_URL = 'http://139.224.26.167:8080/vendor/com1217',
 const API_URL = require('../config.js').apiUrl,
-      Q = require('./Q.js');
+  Q = require('./Q.js');
 
 if (!Object.assign) {
   Object.assign = require('../core/object-assign.js')
@@ -109,7 +109,7 @@ function preProcessInitData(data, control) {
   list.success = 0;
   // 解决错误回顾bug
   var tmp = [];
-  if(typeof data.data == 'object') {
+  if (typeof data.data == 'object') {
     for (var key in data.data) {
       tmp.push(data.data[key]);//往数组中放属性
     }
@@ -164,7 +164,7 @@ function fetchApi(type, params, method) {
 //AJAX主体函数
 function sentRequest(type, params, method) {
   params = Object.assign({
-    
+
   }, params);
   return Q.Promise(function (resolve, reject, notify) {
     wx.request({

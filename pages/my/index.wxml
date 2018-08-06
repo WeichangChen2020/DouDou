@@ -39,10 +39,10 @@
         <view class="zan-cell__bd">更新日志</view>
         <view class="zan-cell__ft"></view>
       </navigator>
-      <!-- <navigator class="zan-cell zan-cell--access" url='/pages/my/help'>
+       <navigator class="zan-cell zan-cell--access" url='/pages/my/help'>
         <view class="zan-cell__bd">使用帮助</view>
         <view class="zan-cell__ft"></view>
-      </navigator> -->
+      </navigator> 
       <navigator class="zan-cell zan-cell--access" url='/pages/my/about'>
         <view class="zan-cell__bd">关于我们</view>
         <view class="zan-cell__ft"></view>

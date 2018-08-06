@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/course/course_create",
     "pages/app/question/list",
@@ -10,7 +9,6 @@
     "pages/app/answer/answer_info/info",
     "pages/app/signin/student/signin",
     "pages/course/course_add",
-    
     "pages/course/course_change",
     "pages/my/my_school",
     "pages/my/my_info",
@@ -29,7 +27,8 @@
     "pages/my/about",
     "pages/my/update",
     "pages/course/course_remark",
-    "pages/my/help"
+    "pages/my/help",
+    "pages/app/register/userlogin"
   ],
   "window": {
     "backgroundColor": "#4bbc93",
