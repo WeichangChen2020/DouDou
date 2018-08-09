@@ -36,7 +36,8 @@
     display: none;
 }
 
-.show_all{
+.schoolsEmpty{
   text-align: center;
-  font-size: 30rpx;
+  font-size: 34rpx;
+  color: #a1a1a1;
 }
