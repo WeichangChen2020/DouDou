@@ -1,1 +1,8 @@
-<web-view src="https://pingshif.applinzi.com/page.php/Index/help"></web-view>
+<!-- <web-view src="https://pingshif.applinzi.com/page.php/Index/help"></web-view> -->
+<view class="container">
+    <view class="" style='margin:0 30rpx'>
+      <view>“豆豆云助教”包括教师端与学生端，本小程序为学生端</view>
+      <view class="zan-c-black">教师端可创建课程，发布签到等等，可搜索“豆豆云助教教师端”以使用。</view>
+    </view>
+    <image mode='aspectFit' src='/images/forTeacher.jpg'></image>
+</view>
