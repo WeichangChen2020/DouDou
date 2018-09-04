@@ -1,5 +1,5 @@
 <import src="/dist/field/index.wxml" />
-<import src="/dist/tab/index.wxml" />
+<!-- <import src="/dist/tab/index.wxml" /> -->
 <import src="/dist/toptips/index.wxml" />
 <template is="zan-tab" data="{{ ...role_list, componentId: 'role' }}"></template>
 <template is="zan-toptips" data="{{ zanTopTips }}"></template>

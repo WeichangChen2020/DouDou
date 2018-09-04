@@ -178,51 +178,53 @@ Page(Object.assign({}, Zan.Field, Zan.Tab, Zan.TopTips, {
           wx.hideLoading()
         }
       })
-    } else {
-      // 注册成为教师用户
-      if (!this.data.invitationCode) {
-        this.showZanTopTips('请输入邀请码')
-        return
-      }
-      console.log(this.data)
-      wx.showLoading({
-        title: '绑定中',
-      })
-      wx.request({
-        url: apiUrl,
-        header: {
-          'content-type': 'application/x-www-form-urlencoded',
-          'Cookie': 'PHPSESSID=' + wx.getStorageSync('pingshifen_PHPSESSID')
-        },
-        data: {
-          method: 'pingshifen.teacher.bind',
-          name: this.data.name,
-          tel: this.data.tel,
-          school: this.data.school,
-          invitation_code: this.data.invitationCode,
-          user_type: this.data.role_list.selectedId,
-        },
-        method: 'POST',
-        success: res => {
-          wx.hideLoading()
-          if (res.data.success == true) {
-            wx.showToast({
-              title: res.data.message,
-              icon: 'success',
-            })
-            wx.setStorageSync('pingshifen_user_type', '2')
-            wx.reLaunch({
-              url: '/pages/index/index',
-            })
-          } else {
-            wx.showToast({
-              title: res.data.message,
-              icon:'none',
-              duration: 2000
-            })
-          }
-        }
-      })
+    }
+    else {
+      //教师端跟学生端分离了，这边全注释掉---2018-8-10
+      // // 注册成为教师用户
+      // if (!this.data.invitationCode) {
+      //   this.showZanTopTips('请输入邀请码')
+      //   return
+      // }
+      // console.log(this.data)
+      // wx.showLoading({
+      //   title: '绑定中',
+      // })
+      // wx.request({
+      //   url: apiUrl,
+      //   header: {
+      //     'content-type': 'application/x-www-form-urlencoded',
+      //     'Cookie': 'PHPSESSID=' + wx.getStorageSync('pingshifen_PHPSESSID')
+      //   },
+      //   data: {
+      //     method: 'pingshifen.teacher.bind',
+      //     name: this.data.name,
+      //     tel: this.data.tel,
+      //     school: this.data.school,
+      //     invitation_code: this.data.invitationCode,
+      //     user_type: this.data.role_list.selectedId,
+      //   },
+      //   method: 'POST',
+      //   success: res => {
+      //     wx.hideLoading()
+      //     if (res.data.success == true) {
+      //       wx.showToast({
+      //         title: res.data.message,
+      //         icon: 'success',
+      //       })
+      //       wx.setStorageSync('pingshifen_user_type', '2')
+      //       wx.reLaunch({
+      //         url: '/pages/index/index',
+      //       })
+      //     } else {
+      //       wx.showToast({
+      //         title: res.data.message,
+      //         icon:'none',
+      //         duration: 2000
+      //       })
+      //     }
+      //   }
+      // })
     }
   },
 }));

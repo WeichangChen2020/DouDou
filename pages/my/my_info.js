@@ -5,6 +5,7 @@ Page({
   data: {
     userInfo: {},
     sex_array: ['保密', '男', '女'],
+    school: ''
   },
   onLoad() {
     https.post('', {
@@ -56,9 +57,12 @@ Page({
     // todo 修改性别
   },
   bindTapSchool() {
-    wx.showToast({
-      title: '学校暂不支持修改',
-      icon: 'none'
+    wx.navigateTo({
+      url: '/pages/my/my_school',
+    })
+    console.log(this.data);
+    this.setData({
+      'userInfo.school' : this.data.school,
     })
   },
   bindTapUserType() {
