@@ -1,40 +1,31 @@
 const app = getApp()
+const https = require('../../util/douban.js')
 const apiUrl = require('../../config.js').apiUrl
 Page({
   data: {
-    userInfo:{},
+    userInfo: {},
     sex_array: ['保密', '男', '女'],
   },
   onLoad() {
-    wx.request({
-      url: apiUrl,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': 'PHPSESSID=' + wx.getStorageSync('pingshifen_PHPSESSID')
-      },
-      data: {
-        method: 'pingshifen.my.info'
-      },
-      success: res => {
-        console.log(res)
-        if (res.data.success == true) {
-          if(res.data.data.user_type == 0) {
-            wx.navigateTo({
-              url: '/pages/app/register/register',
-            })
-          }
-          this.setData({
-            'userInfo':res.data.data,
-            'user_type': res.data.data.user_type,
-          })
-        } else {
-          wx.showToast({
-            title: res.data.message,
+    https.post('', {
+      method: 'pingshifen.my.info'
+    }).then(res => {
+      if (res.data.success == true) {
+        if (res.data.data.user_type == 0) {
+          wx.navigateTo({
+            url: '/pages/app/register/register',
           })
         }
+        this.setData({
+          'userInfo': res.data.data,
+          'user_type': res.data.data.user_type,
+        })
+      } else {
+        wx.showToast({
+          title: res.data.message,
+        })
       }
     })
-    console.log(this.data)
   },
   chooseImage: function () {
     var that = this
@@ -43,7 +34,6 @@ Page({
       sizeType: ['compressed', 'original'],
       count: 1,
       success: function (res) {
-        console.log(res)
         that.setData({
           [`userInfo.head_img`]: res.tempFilePaths[0]
         })
@@ -53,7 +43,7 @@ Page({
   bindTapName() {
     wx.showToast({
       title: '姓名不能修改',
-      icon:'none'
+      icon: 'none'
     })
   },
   bindTapTel() {

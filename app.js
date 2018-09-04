@@ -1,4 +1,3 @@
-var push = require('/util/pushsdk.js');  //小程序 小神推插件
 const loginUrl = require('./config').loginUrl
 const check3RdUrl = require('./config').check3RdUrl
 const setSessionUrl = require('./config').setSessionUrl
@@ -9,26 +8,29 @@ App({
   onLaunch: function () {
     let userInfo;
     wx.clearStorageSync()
-    this.Check = this.login_wx()
-    console.log(this.Check)
+    this.Promise = this.getOpenid()
+    // this.login_wx()
   },
-  Check: null,
+  
   Login: null,
-
-  // 获取用户信息无需登陆状态
-  getUserInfo: function (cb) {
+  Promise: null,
+  getOpenid: function () {
     var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
+    var promise = new Promise(function (resolve, reject) {
       //调用登录接口
-      wx.getUserInfo({
+      wx.login({
         success: function (res) {
-          that.globalData.userInfo = res.userInfo
-          typeof cb == "function" && cb(that.globalData.userInfo)
-        }
+          var code = res.code
+          if (res.code) {
+            that._sendCode(res.code)
+          }
+        },
       })
-    }
+      setTimeout(function () {
+        resolve(wx.getStorageSync('openid'));
+      }, 1500);
+    });
+    return promise;
   },
 
   // 微信登陆
@@ -52,7 +54,6 @@ App({
     return promise
   },
   _sendCode: function (code) {
-
     let that = this;
     var obj = this;
     let addTime = Date.now();
@@ -60,7 +61,7 @@ App({
       hideLoading: true,
       url: '/index.php/Api/Weixin/code_to_openid',
       data: {
-        code: code
+        code: code, 
       },
       success: function (res) {
         if (res.status == 0) {
@@ -83,6 +84,7 @@ App({
         } else {
           wx.setStorageSync('pingshifen_user_type', res.is_register)
           wx.setStorageSync('userInfo', res.user_info)
+          wx.setStorageSync('openid', res.user_info.openid)
           obj.globalData.hasLogin = true
           obj.globalData.userInfo = res.user_info
           obj.globalData.userType = res.user_info.type
@@ -177,6 +179,7 @@ App({
       }
     });
   },
+
   setSessionKey: function (session_key) {
     this.globalData.sessionKey = session_key;
 

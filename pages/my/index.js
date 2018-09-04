@@ -9,30 +9,20 @@ Page({
   },
   onLoad: function (options) {
     let user_type = wx.getStorageSync('pingshifen_user_type')
-    this.setData({user_type: user_type})
-    wx.request({
-      url: apiUrl,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': 'PHPSESSID=' + wx.getStorageSync('pingshifen_PHPSESSID')
-      },
-      type: 'POST',
-      data: {
-        method: 'pingshifen.my.index'
-      },
-      success: res => {
-        console.log(res)
-        if (res.data.success == true) {
-          this.setData({
-            'head_img': res.data.data.avatar,
-            'is_bind': res.data.data.is_bind,
-          })
-        } else {
-          this.setData({
-            'head_img': app.globalData.userInfo.avatar
-          })
-          wx.showToast({title: res.data.message,icon: 'none'})
-        }
+    this.setData({ user_type: user_type })
+    https.post('', {
+      method: 'pingshifen.my.index'
+    }).then(res => {
+      if (res.data.success == true) {
+        this.setData({
+          'head_img': res.data.data.avatar,
+          'is_bind': res.data.data.is_bind,
+        })
+      } else {
+        this.setData({
+          'head_img': app.globalData.userInfo.avatar
+        })
+        wx.showToast({ title: res.data.message, icon: 'none' })
       }
     })
   },
@@ -69,7 +59,7 @@ Page({
     return {
       title: school + name + '邀请你使用豆豆云助教小程序',
       path: path,
-      imageUrl:'http://pingshif-img.stor.sinaapp.com/2018-02-21/share_use.jpg',
+      imageUrl: 'http://pingshif-img.stor.sinaapp.com/2018-02-21/share_use.jpg',
       success: function (res) {
       },
       fail: function (res) {

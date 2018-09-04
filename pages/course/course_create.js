@@ -163,35 +163,25 @@ Page({
     wx.showLoading({
       title: '课程创建中',
     })
-    
-    wx.request({
-      url: apiUrl,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': 'PHPSESSID=' + wx.getStorageSync('pingshifen_PHPSESSID')
-      },
-      data: {
-        method: 'pingshifen.course.create',
-        course_name: this.data.course_name,
-        course_img: this.data.course_img,
-        course_class_name: this.data.course_class_name,
-        course_remark: this.data.course_remark,
-      },
-      method: 'POST',
-      success: res => {
-        this.setData({ is_lock: false })
-        wx.hideLoading();
-        if (res.data.success == false) {
-          wx.showToast({
-            title: res.data.message, icon: 'none'
-          })
-          return
-        } else {
-          wx.setStorageSync('pingshifen_current_course_id', res.data.data)
-          wx.reLaunch({
-            url: '/pages/index/index',
-          })
-        }
+    https.post('', {
+      method: 'pingshifen.course.create',
+      course_name: this.data.course_name,
+      course_img: this.data.course_img,
+      course_class_name: this.data.course_class_name,
+      course_remark: this.data.course_remark,
+    }).then(res => {
+      this.setData({ is_lock: false })
+      wx.hideLoading();
+      if (res.data.success == false) {
+        wx.showToast({
+          title: res.data.message, icon: 'none'
+        })
+        return
+      } else {
+        wx.setStorageSync('pingshifen_current_course_id', res.data.data)
+        wx.reLaunch({
+          url: '/pages/index/index',
+        })
       }
     })
   },

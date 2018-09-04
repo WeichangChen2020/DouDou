@@ -164,7 +164,7 @@ function fetchApi(type, params, method) {
 //AJAX主体函数
 function sentRequest(type, params, method) {
   params = Object.assign({
-
+    openid:wx.getStorageSync('openid')
   }, params);
   return Q.Promise(function (resolve, reject, notify) {
     wx.request({
@@ -230,14 +230,3 @@ module.exports = {
     return sentRequest(type, params, 'POST');
   }
 }
-
-
-// class Douban {
-//   // 不支持
-//   // static API_URL = 'https://api.douban.com/v2/movie/'
-
-//   constructor (title, movies) {
-//     this.title = title
-//     this.movies = movies
-//   }
-// }

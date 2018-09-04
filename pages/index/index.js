@@ -20,10 +20,10 @@ Page({
     },
     hideLoading: false
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     wx.showNavigationBarLoading()
     let user_type = wx.getStorageSync('pingshifen_user_type')
-    if (typeof(options) == "object" && options.invitor != '' && user_type == 0) {
+    if (typeof (options) == "object" && options.invitor != '' && user_type == 0) {
       let invitation_code = 0;
       if (options.invitation_code) {
         invitation_code = options.invitation_code
@@ -31,16 +31,24 @@ Page({
     }
     let obj = this
     let course_id = ''
-    if (typeof(options) == "object") {
+    if (typeof (options) == "object") {
       course_id = options.course_id
     }
-    wx.hideNavigationBarLoading()
-    this.setData({
-      hideLoading: true,
-    })
-    obj.getCurrentCourse(course_id)
+    
+    app.Promise.then(function (value) {
+      console.log('获取openid成功:' + value)
+      wx.hideNavigationBarLoading()
+      obj.setData({
+        hideLoading: true,
+      })
+      obj.getCurrentCourse(course_id)
+    }, function (error) {
+      // failure
+    });
+
   },
-  onShareAppMessage: function(res) {
+
+  onShareAppMessage: function (res) {
     if (false == this.check_register()) {
       return
     }
@@ -59,24 +67,24 @@ Page({
     return {
       title: name + '邀请你加入' + course + '课程',
       path: '/pages/index/index?course_id=' + course_id,
-      success: function(res) {
+      success: function (res) {
         // 转发成功
       },
-      fail: function(res) {
+      fail: function (res) {
         // 转发失败
       }
     }
   },
   getCurrentCourse(course_id = '') {
-    
+
     let current_course_id = course_id
     if (!current_course_id) {
       current_course_id = wx.getStorageSync('pingshifen_current_course_id');
     }
-    
     console.log(app)
     let openid = app.globalData.userInfo.openid
-    console.log(openid)
+
+    console.log(wx.getStorageInfoSync('openid'))
     wx.request({
       url: apiUrl,
       header: {
@@ -86,7 +94,7 @@ Page({
       data: {
         method: 'pingshifen.course.current',
         current_course_id: current_course_id,
-        openid: app.globalData.userInfo.openid
+        openid: wx.getStorageSync('openid'),
       },
       method: 'POST',
       success: res => {
@@ -96,7 +104,7 @@ Page({
             wx.showModal({
               title: '提示',
               content: '你还没有加入该课程，加入该课程？',
-              success: function(e) {
+              success: function (e) {
                 if (e.confirm) {
                   wx.navigateTo({
                     url: '/pages/course/course_add?course_id=' + current_course_id,
@@ -133,7 +141,7 @@ Page({
       }
     })
   },
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     let obj = this
     wx.showToast({
       title: '加载中...',
@@ -142,7 +150,7 @@ Page({
     obj.getCurrentCourse()
     wx.stopPullDownRefresh({})
   },
-  changCourse: function() {
+  changCourse: function () {
     if (false == this.check_register()) {
       return
     }
@@ -151,7 +159,7 @@ Page({
     let user_type = wx.getStorageSync('pingshifen_user_type')
     wx.showActionSheet({
       itemList: itemList,
-      success: function(res) {
+      success: function (res) {
         if (res.tapIndex == 0) {
           wx.navigateTo({
             url: '/pages/course/course_create',
@@ -176,7 +184,7 @@ Page({
       }
     });
   },
-  bindUrlToSignin: function() {
+  bindUrlToSignin: function () {
     if (false == this.check_register()) {
       return
     }
@@ -185,7 +193,7 @@ Page({
     })
   },
   // 资料下载
-  bindUrlToDownload: function() {
+  bindUrlToDownload: function () {
     if (false == this.check_register()) {
       return
     }
@@ -195,7 +203,7 @@ Page({
     })
   },
   // 随堂测试
-  bindUrlToCourseTest: function() {
+  bindUrlToCourseTest: function () {
     if (false == this.check_register()) {
       return
     }
@@ -204,7 +212,7 @@ Page({
     });
   },
   // 收藏
-  bindUrlToStore: function(e) {
+  bindUrlToStore: function (e) {
     if (false == this.check_register()) {
       return
     }
@@ -223,7 +231,7 @@ Page({
           showCancel: true,
           cancelText: '知道了',
           confirmText: '去登录',
-          success: function(res) {
+          success: function (res) {
 
           }
         })
@@ -233,7 +241,7 @@ Page({
           content: '未发现您的收藏',
           showCancel: false,
           confirmText: '知道了',
-          success: function(res) {
+          success: function (res) {
 
           }
         })
@@ -241,7 +249,7 @@ Page({
     }
   },
   // 错题
-  bindUrlToWrong: function(e) {
+  bindUrlToWrong: function (e) {
     if (false == this.check_register()) {
       return
     }
@@ -261,7 +269,7 @@ Page({
           cancelColor: '#00bcd5',
           confirmText: '去登录',
           confirmColor: '#00bcd5',
-          success: function(res) {}
+          success: function (res) { }
         })
       } else {
         wx.showModal({
@@ -270,7 +278,7 @@ Page({
           showCancel: false,
           confirmText: '知道了',
           confirmColor: '#00bcd5',
-          success: function(res) {}
+          success: function (res) { }
         })
       }
     }

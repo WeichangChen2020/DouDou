@@ -1,5 +1,7 @@
 var app = getApp();
 const loginUrl = require('../../../config.js').loginUrl
+const https = require('../../../util/douban.js');
+
 Page({
   data: {
 

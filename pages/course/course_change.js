@@ -26,29 +26,21 @@ Page(extend({}, Tab, {
     wx.showLoading({
       title: '加载中',
     })
-    wx.request({
-      url: apiUrl,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Cookie': 'PHPSESSID=' + wx.getStorageSync('pingshifen_PHPSESSID')
-      },
-      data: {
-        method: 'pingshifen.course.list_in_use',
-      },
-      method: 'POST',
-      success: res => {
-        if (res.data.success == true) {
-          this.setData({
-            courses_in_use: res.data.data
-          })
-        } else {
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none'
-          })
-        }
+    https.post('', {
+      method: 'pingshifen.course.list_in_use',
+    }).then(res => {
+      if (res.data.success == true) {
+        this.setData({
+          courses_in_use: res.data.data
+        })
+      } else {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
       }
     })
+
     https.post('', {
       method: 'pingshifen.course.list_in_lock',
     }).then(res => {

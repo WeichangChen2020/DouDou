@@ -89,6 +89,7 @@ Page({
       data: {
         method: 'pingshifen.course.add',
         course_id: course_id,
+        openid: wx.getStorageSync('openid'),
       },
       method: 'POST',
       success: res => {
