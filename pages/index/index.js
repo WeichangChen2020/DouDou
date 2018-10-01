@@ -298,7 +298,6 @@ Page({
     if (false == this.check_register()) {
       return
     }
-    console.log(e)
     let type = e.currentTarget.dataset.type
     let subject = this.data.examInlets[0].subject
     var _url = ''

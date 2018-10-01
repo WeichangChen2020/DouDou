@@ -6,15 +6,15 @@
         <image class="head_img" src="{{userInfo.head_img?userInfo.head_img:'/images/default_head_circle.png'}}"></image>
       </view>
     </view>
-    <view class="zan-cell zan-cell--access" bindtap='bindTapName'>
+    <view class="zan-cell zan-cell--access" bindtap='bindTapName' data-value='{{userInfo.name}}'>
       <view class="zan-cell__bd">姓名</view>
       <view class="zan-cell__ft">{{userInfo.name}}</view>
     </view>
-    <view class="zan-cell zan-cell--access" bindtap='bindTapTel'>
+    <view class="zan-cell zan-cell--access" bindtap='bindTapTel' data-value='{{userInfo.tel}}'>
       <view class="zan-cell__bd">手机号</view>
       <view class="zan-cell__ft">{{userInfo.tel}}</view>
     </view>
-    <view class="zan-cell zan-cell--access" bindtap='bindTapSex'>
+    <view class="zan-cell zan-cell--access" bindtap='bindTapSex' data-value='{{userInfo.sex}}'>
       <view class="zan-cell__bd">性别</view>
       <view class="zan-cell__ft">{{sex_array[userInfo.sex]}}</view>
     </view>
@@ -24,7 +24,7 @@
       <view class="zan-cell__bd">学校</view>
       <view class="zan-cell__ft">{{userInfo.school}}</view>
     </view>
-    <view class="zan-cell zan-cell--access" wx:if="{{userInfo.user_type == '学生'}}" bindtap='bindTapNumber'>
+    <view class="zan-cell zan-cell--access" wx:if="{{userInfo.user_type == '学生'}}" bindtap='bindTapNumber' data-value='{{userInfo.number}}'>
       <view class="zan-cell__bd">学号</view>
       <view class="zan-cell__ft">{{userInfo.number}}</view>
     </view>
@@ -33,10 +33,10 @@
       <view class="zan-cell__ft">{{userInfo.enter_year}}</view>
     </view>
   </view>
-  <view class="zan-panel">
+  <!-- <view class="zan-panel">
     <view class="zan-cell zan-cell--access" bindtap='bindTapUserType'>
       <view class="zan-cell__bd">用户类型</view>
       <view class="zan-cell__ft">{{userInfo.user_type}}</view>
     </view>
-  </view>
+  </view> -->
 </block>

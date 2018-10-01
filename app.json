@@ -28,7 +28,8 @@
     "pages/my/update",
     "pages/course/course_remark",
     "pages/my/help",
-    "pages/app/register/userlogin"
+    "pages/app/register/userlogin",
+    "pages/my/change"
   ],
   "window": {
     "backgroundColor": "#4bbc93",

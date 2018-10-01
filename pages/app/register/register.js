@@ -113,7 +113,7 @@ Page(Object.assign({}, Zan.Field, Zan.Tab, Zan.TopTips, {
       this.showZanTopTips('手机号不能为空');
       return
     } else {
-      let myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+      let myreg = /^[1][0-9]{10}$/;
       let tel = this.data.tel;
       if (!myreg.test(tel)) {
         this.showZanTopTips('请输入正确的手机号');

@@ -33,7 +33,7 @@
     <view class="zan-panel">
       <view class="zan-cell zan-cell--access">
         <view class="zan-cell__bd">当前版本</view>
-        <view class="zan-cell__ft">v8.10.1</view>
+        <view class="zan-cell__ft">v9.18.2</view>
       </view>
       <navigator class="zan-cell zan-cell--access" url='/pages/my/update'>
         <view class="zan-cell__bd">更新日志</view>
