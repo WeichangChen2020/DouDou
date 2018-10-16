@@ -180,6 +180,12 @@ Page(extend({}, Tab, Switch, {
           });
           this.signin_record_view()
         }
+      },
+      fail: res => {
+        wx.showToast({
+          title: res,
+          icon: 'none'
+        })
       }
     })
   },
