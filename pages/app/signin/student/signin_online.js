@@ -38,9 +38,13 @@ Page(extend({}, Tab, Switch, {
     let signin_id = option.signin_id
     let signin_name = option.signin_name
     let course_id = wx.getStorageSync('pingshifen_current_course_id')
-    let user_type = wx.getStorageSync('pingshifen_user_type')
-    if (!signin_id || !user_type || !course_id) {
-      wx.showToast({ title: '参数错误', icon: 'none' })
+    // let user_type = wx.getStorageSync('pingshifen_user_type')
+    let user_type = '1'
+    if (!signin_id ) {
+      wx.showToast({ title: 'signin_id参数错误', icon: 'none' })
+      return
+    } else if (!course_id) {
+      wx.showToast({ title: 'course_id参数错误,请尝试切换课程', icon: 'none' })
       return
     }
     wx.setNavigationBarTitle({
