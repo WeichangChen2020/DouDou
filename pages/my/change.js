@@ -150,7 +150,7 @@ Page({
         },
         data: {
           method: 'pingshifen.student.sexSet',
-          sex: e.detail.value.input,
+          sex: this.data.tmp,
         },
         success: res => {
           console.log(res)
