@@ -1,1 +1,11 @@
 /* pages/my/change.wxss */
+.weui-cell_input {
+  padding-right: 0px;
+}
+.button_mine {
+  border-radius: 0;
+  background-color: #fff;
+  border-color: #fff;
+  color: #3cc51f;
+  line-height:2.4;
+}

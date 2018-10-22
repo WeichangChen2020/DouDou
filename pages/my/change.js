@@ -49,10 +49,14 @@ Page({
     this.setData({
       tmp: res.detail.value
     })
+    console.log(res)
   },
-
-  submit: function (option) {
-    if (this.data.tmp == '') {
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    this.setData({
+      tmp: e.detail.value.input
+    })
+    if (e.detail.value.input == '') {
       wx.showToast({
         title: '不能为空',
         icon: 'none'
@@ -60,7 +64,7 @@ Page({
     }
     if (this.data.changeWhat == 'tel') {
       let myreg = /^\d{8,11}$/;
-      if (!myreg.test(this.data.tmp)) {
+      if (!myreg.test(e.detail.value.input)) {
         wx.showToast({
           title: '请输入正确的手机号',
           icon: 'none'
@@ -74,7 +78,7 @@ Page({
         },
         data: {
           method: 'pingshifen.student.telSet',
-          tel: this.data.tmp,
+          tel: e.detail.value.input,
         },
         success: res => {
           console.log(res)
@@ -82,8 +86,8 @@ Page({
       })
     }
     if (this.data.changeWhat == 'num') {
-      let myreg = /^\d{8,11}$/;
-      if (!myreg.test(this.data.tmp)) {
+      let myreg = /^\d{7,11}$/;
+      if (!myreg.test(e.detail.value.input)) {
         wx.showToast({
           title: '请输入正确的学号',
           icon: 'none'
@@ -97,7 +101,7 @@ Page({
         },
         data: {
           method: 'pingshifen.student.numberSet' ,
-          number: this.data.tmp,
+          number: e.detail.value.input,
         },
         success: res => {
           console.log(res)
@@ -112,7 +116,7 @@ Page({
         },
         data: {
           method: 'pingshifen.student.name',
-          name: this.data.tmp,
+          name: e.detail.value.input,
         },
         success: res => {
           console.log(res)
@@ -120,15 +124,15 @@ Page({
       })
     }
     if (this.data.changeWhat == 'sex') {
-      if (this.data.tmp == '男') {
+      if (e.detail.value.input == '男') {
         this.setData({
           tmp: 1
         })
-      } else if (this.data.tmp == '女') {
+      } else if (e.detail.value.input == '女') {
         this.setData({
           tmp: 2
         })
-      } else if (this.data.tmp == '未知') {
+      } else if (e.detail.value.input == '未知') {
         this.setData({
           tmp: 0
         })
@@ -146,7 +150,7 @@ Page({
         },
         data: {
           method: 'pingshifen.student.sexSet',
-          sex: this.data.tmp,
+          sex: e.detail.value.input,
         },
         success: res => {
           console.log(res)
