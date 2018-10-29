@@ -250,6 +250,7 @@ Page({
   },
   // 错题
   bindUrlToWrong: function (e) {
+    console.log(this.data)
     if (false == this.check_register()) {
       return
     }

@@ -143,10 +143,57 @@ Page(extend({}, Tab, Switch, {
     if (this.data.is_locked == true) {
       return
     }
+    let obj = this
+    wx.getSetting({
+      success(res) {
+        console.log('aaa')
+        var statu = res.authSetting;
+        if (!statu['scope.userLocation']) {
+          wx.showModal({
+            title: '是否授权当前位置',
+            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+            success: function (tip) {
+              if (tip.confirm) {
+                wx.openSetting({
+                  success: function (data) {
+                    if (data.authSetting["scope.userLocation"] === true) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1000
+                      })
+                      //授权成功之后，再调用chooseLocation选择地方
+                      wx.getLocation({
+                        success: function (res) {
+                          obj.setData({
+                            [`signin_online.latitude`]: res.latitude,
+                            [`signin_online.longitude`]: res.longitude,
+                          })
+                        },
+                      })
+                    } else {
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'success',
+                        duration: 1000
+                      })
+                    }
+                  }
+                })
+              } else {
+                obj.setData({ is_locked: false })
+                return
+              }
+            }
+          })
+        }
+      }
+    })
     this.setData({is_locked: true})
     wx.showLoading({
       title: '签到中...',
     })
+    let that = this
     let course_id = this.data.course_id
     let signin_id = this.data.signin_id
     let latitude = this.data.signin_online.latitude
