@@ -72,6 +72,15 @@ Page({
   course_add_140529() {
     this.course_add_logic(140529)
   },
+  course_add_140549() {
+    this.course_add_logic(140549)
+  },
+  course_add_140548() {
+    this.course_add_logic(140548)
+  },
+  course_add_140532() {
+    this.course_add_logic(140532)
+  },
   course_add_logic(course_id) {
     if (this.data.is_lock == true) {
       return

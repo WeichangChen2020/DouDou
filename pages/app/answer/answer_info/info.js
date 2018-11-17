@@ -515,6 +515,8 @@ Page({
     } else if (params.type == 'sxlx') {
       wx.setNavigationBarTitle({ title: '顺序练习', })
     }
+    console.log('params')
+    console.log(this.data)
     https.initialize(this.data.answers.onLoadUrl, {
       subject: params.subject,
       type: params.type,
@@ -525,6 +527,7 @@ Page({
         isShowNewExam: this.data.isShowNewExam
       })
       .then(d => {
+        console.log(this.data)
         if (params.type != 'wdct' && params.type != 'wdsc') {//判断题型分析是否改变初始位置
           this.data.answers.activeNum = d.activeNum || 0;
           this.data.answers.showActiveNum = d.activeNum || 0;

@@ -146,7 +146,6 @@ Page(extend({}, Tab, Switch, {
     let obj = this
     wx.getSetting({
       success(res) {
-        console.log('aaa')
         var statu = res.authSetting;
         if (!statu['scope.userLocation']) {
           wx.showModal({

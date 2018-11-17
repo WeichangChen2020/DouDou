@@ -66,7 +66,106 @@
         <view class="zan-card__detail-row zan-c-gray-darker">
           <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:140529 </view>
           <view class="zan-card__left-col">
-            <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
+            <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+    <view class="zan-card" bindtap='course_add_140549'>
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="http://pingshif-img.stor.sinaapp.com/2018-06-12/5b1f4c9f6ea42.jpg" mode="aspectFit"></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+            思修
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-black">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-wap-home class-info-icon"></view>浙江工商大学
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-black">
+            <view class="zan-icon zan-icon-contact class-info-icon"></view>初中美少女
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:140549 </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+    <view class="zan-card" bindtap='course_add_140548'>
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="http://pingshif-img.stor.sinaapp.com/2018-06-11/5b1e85e7a953f.jpg" mode="aspectFit"></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+            马克思主义基本原理概论
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-black">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-wap-home class-info-icon"></view>浙江工商大学
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-black">
+            <view class="zan-icon zan-icon-contact class-info-icon"></view>初中美少女
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:140548 </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+    <view class="zan-card" bindtap='course_add_140532'>
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="http://pingshif-img.stor.sinaapp.com/2018-03-11/5aa51432b7bc1.jpg" mode="aspectFit"></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+            新生入学考试
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-black">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-wap-home class-info-icon"></view>浙江工商大学
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-black">
+            <view class="zan-icon zan-icon-contact class-info-icon"></view>诸葛斌
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:140532 </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
           </view>
         </view>
       </view>
