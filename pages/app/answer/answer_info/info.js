@@ -147,9 +147,9 @@ Page({
     this.setSwiperList();
     this.setData(this.data);
     //延迟加载滑动  这里暂时设置为手动滑动做下一题
-    /*if (this.data.answers.activeNum + 1 < this.data.answers.allLists.length) {
-      setTimeout(() => this.onSwiper('left'), 200);
-    }*/
+    if (this.data.answers.activeNum + 1 < this.data.answers.allLists.length) {
+      setTimeout(() => this.onSwiper('left'), 400);
+    }
     //传答案
     https.setAnswer(this.data.answerUrl, {
       questionID: this.data.answers.allLists[this.data.answers.activeNum].id,

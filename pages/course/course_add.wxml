@@ -7,6 +7,39 @@
   </view>
   <view class='recommend_header'>课程推荐</view>
   <view class="zan-panel">
+    <view class="zan-card" bindtap='course_add_140609'>
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="http://pingshif-img.stor.sinaapp.com/2018-12-18/5c1895344766d.jpg" mode="aspectFit"></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+            马克思主义基本原理概论（2018）
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-black">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-wap-home class-info-icon"></view>浙江工商大学
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-black">
+            <view class="zan-icon zan-icon-contact class-info-icon"></view>郑雨婷
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:140609 </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
     <view class="zan-card" bindtap='course_add_140533'>
       <view class="zan-card__thumb">
         <image class="zan-card__img" src="http://pingshif-img.stor.sinaapp.com/2018-03-09/5aa28cb1deb7d.jpg" mode="aspectFit"></image>
@@ -98,39 +131,6 @@
 
         <view class="zan-card__detail-row zan-c-gray-darker">
           <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:140549 </view>
-          <view class="zan-card__left-col">
-            <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="zan-panel">
-    <view class="zan-card" bindtap='course_add_140548'>
-      <view class="zan-card__thumb">
-        <image class="zan-card__img" src="http://pingshif-img.stor.sinaapp.com/2018-06-11/5b1e85e7a953f.jpg" mode="aspectFit"></image>
-      </view>
-      <view class="zan-card__detail">
-        <view class="zan-card__detail-row">
-          <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
-            马克思主义基本原理概论
-          </view>
-        </view>
-        <view class="zan-card__detail-row zan-c-black">
-          <view class="zan-card__right-col"></view>
-          <view class="zan-card__left-col">
-            <view class="zan-icon zan-icon-wap-home class-info-icon"></view>浙江工商大学
-          </view>
-        </view>
-
-        <view class="zan-card__detail-row zan-c-gray-darker">
-          <view class="zan-card__left-col zan-c-black">
-            <view class="zan-icon zan-icon-contact class-info-icon"></view>初中美少女
-          </view>
-        </view>
-
-        <view class="zan-card__detail-row zan-c-gray-darker">
-          <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:140548 </view>
           <view class="zan-card__left-col">
             <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
           </view>

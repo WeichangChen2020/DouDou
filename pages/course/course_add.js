@@ -75,8 +75,8 @@ Page({
   course_add_140549() {
     this.course_add_logic(140549)
   },
-  course_add_140548() {
-    this.course_add_logic(140548)
+  course_add_140609() {
+    this.course_add_logic(140609)
   },
   course_add_140532() {
     this.course_add_logic(140532)
