@@ -9,8 +9,8 @@ Page({
     userType: 'xuechetiku',
     mid: null, //模拟考ID
     isShowNewExam: true, //是否显示后台答案统计
-    isNewExam: false, //是否使用后台答案。为true时必须isShowNewExam也为true
-    isLoading: false, //加载
+    isNewExam: true, //是否使用后台答案。为true时必须isShowNewExam也为true
+    isLoading: true, //加载
     swiper: {
       active: 0
     },
@@ -149,8 +149,6 @@ Page({
     this.setSwiperList();
     this.setData(this.data);
     //延迟加载滑动  这里暂时设置为手动滑动做下一题
-    console.log('this.data.autoJump')
-    console.log(this.data.autoJump)
     if (this.data.answers.activeNum + 1 < this.data.answers.allLists.length && this.data.autoJump) {
       setTimeout(() => this.onSwiper('left'), 400);
     }
