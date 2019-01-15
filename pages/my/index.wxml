@@ -25,6 +25,10 @@
         <view class="zan-cell__bd">我的课程</view>
         <view class="zan-cell__ft"></view>
       </navigator>
+      <navigator class="zan-cell zan-cell--access" url="./settings/settings">
+        <view class="zan-cell__bd">设置</view>
+        <view class="zan-cell__ft"></view>
+      </navigator>
       <!-- <view class="zan-cell zan-cell--access">
         <view class="zan-cell__bd">我的邀请码</view>
         <view class="zan-cell__ft">20180215</view>

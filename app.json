@@ -29,7 +29,8 @@
     "pages/course/course_remark",
     "pages/my/help",
     "pages/app/register/userlogin",
-    "pages/my/change"
+    "pages/my/change",
+    "pages/my/settings/settings"
   ],
   "window": {
     "backgroundColor": "#4bbc93",
