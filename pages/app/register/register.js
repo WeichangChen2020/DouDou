@@ -19,9 +19,11 @@ Page(Object.assign({}, Zan.Field, Zan.Tab, Zan.TopTips, {
     yearIndex: 2,
     name: '',
     tel: '',
-    school: '',
+    school: '浙江工商大学',
     num: '',
     invitationCode: '', //邀请码
+    accounts: ["浙江工商大学", "浙江工商大学杭州商学院", "浙江师范大学", "温州医科大学", "其他"],
+    accountIndex: 0,
   },
   onLoad: function (options) {
     if (options.code && options.code != 0) {
@@ -83,11 +85,11 @@ Page(Object.assign({}, Zan.Field, Zan.Tab, Zan.TopTips, {
     //   },
     // })
   },
-  getUserSchool() {
-    wx.navigateTo({
-      url: '/pages/my/my_school',
-    })
-  },
+  // getUserSchool() {
+  //   wx.navigateTo({
+  //     url: '/pages/my/my_school',
+  //   })
+  // },
   changeName(e) {
     this.setData({
       name: e.detail.value
@@ -226,5 +228,12 @@ Page(Object.assign({}, Zan.Field, Zan.Tab, Zan.TopTips, {
       //   }
       // })
     }
+  },
+  bindAccountChange: function (e) {
+
+    this.setData({
+      accountIndex: e.detail.value,
+      school: this.data.accounts[e.detail.value]
+    })
   },
 }));

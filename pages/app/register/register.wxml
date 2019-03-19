@@ -14,10 +14,13 @@
   </view>
   <view class="zan-cell zan-field">
     <view class="zan-cell__hd zan-field__title">学校</view>
-    <input type="text" placeholder="点击右侧按钮选择学校" value='{{school}}' disabled class="zan-field__input zan-cell__bd" />
-    <view class="zan-cell__ft">
+    <!-- <input type="text" placeholder="点击右侧按钮选择学校" value='{{school}}' disabled class="zan-field__input zan-cell__bd" /> -->
+    <!-- <view class="zan-cell__ft">
       <button class="zan-btn zan-btn--mini zan-btn--primary" bindtap='getUserSchool'>选择学校</button>
-    </view>
+    </view> -->
+    <picker mode="selector" class="zan-field__input zan-cell__bd" range="{{ accounts }}" value="{{ accountIndex }}" bindchange="bindAccountChange">
+      {{ accounts[accountIndex] }}
+    </picker>
   </view>
   <view class="zan-cell zan-field" wx:if="{{role_list.selectedId == 'student'}}">
     <view class="zan-cell__hd zan-field__title">学号</view>
@@ -29,10 +32,8 @@
       {{ year[yearIndex] }}
     </picker>
   </view>
-  <view class="zan-cell zan-field" wx:if="{{role_list.selectedId == 'teacher'}}">
-    <view class="zan-cell__hd zan-field__title">邀请码</view>
-    <input type="number" placeholder="输入邀请码" value="{{invitationCode}}" bindchange="changeInvitationCode" class="zan-field__input zan-cell__bd" />
-  </view>
+  <!-- <view class="weui-cell weui-cell_select">
+  </view> -->
 </view>
 <view class="zan-btns">
   <button class="zan-btn zan-btn--primary" bindtap="bindSubmit">确定</button>

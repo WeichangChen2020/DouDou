@@ -16,7 +16,7 @@ Page(extend({}, Tab, Switch, {
       scroll: false,
       height: 45
     },
-    current_show: 'signin_record',
+    current_show: 'signin_online',
     course_id: 0,
     signin_id: 0,
     user_type: 0,
@@ -141,6 +141,7 @@ Page(extend({}, Tab, Switch, {
   },
   signin_online() {
     if (this.data.is_locked == true) {
+      console.log('lock')
       return
     }
     let obj = this
@@ -177,6 +178,7 @@ Page(extend({}, Tab, Switch, {
                         duration: 1000
                       })
                     }
+                    obj.setData({ is_locked: false })
                   }
                 })
               } else {
