@@ -83,6 +83,7 @@ Component({
       that.setData({
         focus_class: true
       })
+      console.log('get_focus')
     },
 
     // 失去焦点时
@@ -91,6 +92,7 @@ Component({
       that.setData({
         focus_class: false
       })
+      console.log('setFocus')
     },
 
     // 点击聚焦
@@ -99,6 +101,7 @@ Component({
       that.setData({
         get_focus: true
       })
+      console.log('setFocus')
     },
 
     // 获取输入框的值

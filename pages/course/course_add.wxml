@@ -1,6 +1,16 @@
 <view class='container' wx:if="{{!show_course}}">
   <view class='course_number'>
-    <paySix bindvalueSix="valueSix"></paySix>
+    <!-- <paySix bindvalueSix="valueSix"></paySix> -->
+    <view class='content' catchtap='Tap'>
+
+      <block wx:for="{{Length}}" wx:key="item">
+        <input class='iptbox' value="{{Value[index]}}" disabled></input>
+      </block>
+
+    </view>
+
+    <input name="password" password="{{true}}" class='ipt' focus="{{isFocus}}" bindinput="inputing" type="number" value="{{Value}}"></input>
+
   </view>
   <view class="doc-description">
     请输入6位数课程号

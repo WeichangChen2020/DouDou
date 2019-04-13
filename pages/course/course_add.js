@@ -6,17 +6,22 @@ Page({
     show_course: false,
     course: {},
     is_lock: false,
+    Length: 6,
+    isFocus: true,
+    Value: '',
+    ispassword: false,
+    arr1: [1,2,3,4,5]
   },
   onLoad(options) {
     if(options.course_id) {
       this.search(options.course_id)
     }
   },
-  // 当组件输入数字6位数时的自定义函数
-  valueSix(e) {
-    // 要么 检索不存在，要么该课程已经锁定，不能加入
-    this.search(e.detail.current_value) 
-  },
+  // // 当组件输入数字6位数时的自定义函数
+  // valueSix(e) {
+  //   // 要么 检索不存在，要么该课程已经锁定，不能加入
+  //   this.search(e.detail.current_value) 
+  // },
 
   // 检索课程
   search(course_id) {
@@ -126,6 +131,23 @@ Page({
           })
         }
       }
+    })
+  },
+  inputing(e) {
+    let regexp = (/[^0-9]|^0+(?!$)/g)
+    let that = this
+    e.detail.value = e.detail.value.replace(regexp, '').substr(0, 6)
+    e.detail.cursor = e.detail.value.length
+    this.setData({
+      Value: e.detail.value
+    })
+    if(e.detail.value.length == 6) {
+      this.search(that.data.Value) 
+    }
+  },
+  Tap() {
+    this.setData({
+      isFocus: true
     })
   }
 })

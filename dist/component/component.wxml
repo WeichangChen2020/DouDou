@@ -32,5 +32,5 @@
     </view>
 
     <!-- 输入框（隐藏） -->
-    <input value="{{input_value}}" focus="{{get_focus}}" maxlength="6" type="number" class='input_container' placeholder="" bindinput="get_value" bindfocus="get_focus" bindblur="blur" />
+    <input value="{{input_value}}" focus="{{get_focus}}" maxlength="6" type="number" class='input_container' placeholder="" bindfocus="get_focus" bindinput="get_value" bindblur="blur" />
   </view>
